@@ -2,6 +2,8 @@
 
 Seven public repositories make up the terraform-mongodbatlas-modules organization. Each module is published on the [Terraform Registry](https://registry.terraform.io/namespaces/terraform-mongodbatlas-modules).
 
+Module boundaries follow the [Atlas org, project, and cluster hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) and [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) guidance in the Architecture Center. For end-to-end industry patterns, see the [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
+
 ## terraform-mongodbatlas-organization
 
 - **GitHub:** [terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization)
@@ -54,3 +56,5 @@ Seven public repositories make up the terraform-mongodbatlas-modules organizatio
 ## Upgrade guides
 
 Each module repository ships its own upgrade guide (for example `docs/v1-upgrade-guide.md` or the path listed in that repo's README). Read the guide for the module and version you are moving to; do not copy migration steps into this hub.
+
+When a module default traces to Architecture Center guidance (for example backups, TLS, or autoscaling), the relevant page is linked from that module's README. Start from the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) index if you need the full catalog.

@@ -1,31 +1,37 @@
 # Getting started
 
-This guide covers your first Terraform apply with the terraform-mongodbatlas-modules organization.
+This guide covers your first Terraform apply with the terraform-mongodbatlas-modules organization. For the official MongoDB walkthrough of these modules, see [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/). For provider basics, see [Get started with Terraform and the MongoDB Atlas provider](https://www.mongodb.com/docs/atlas/terraform/).
 
 ## Prerequisites
 
-- A MongoDB Atlas organization (or permission to create one).
-- Atlas API credentials (see below).
+- A MongoDB Atlas organization (or permission to create one). See [Atlas organizations](https://www.mongodb.com/docs/atlas/tutorial/manage-organizations/).
+- Atlas programmatic credentials (see below). See [Configure API access](https://www.mongodb.com/docs/atlas/configure-api-access/).
 - [Terraform](https://developer.hashicorp.com/terraform/install) 1.9 or newer (matches current module requirements).
 - Cloud-provider credentials if you use a CSP integration module (AWS, Azure, or GCP).
 
 ## Credentials
 
-The [MongoDB Atlas Terraform provider](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs) authenticates with API keys.
+The [MongoDB Atlas Terraform provider](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs) authenticates with Atlas programmatic credentials.
 
-1. In Atlas, create an API key with the roles your modules need (organization or project level).
-2. Export the key pair:
+MongoDB recommends [Atlas Service Accounts](https://www.mongodb.com/docs/atlas/configure-api-access/#grant-programmatic-access-to-an-organization) for Terraform and other automation. Export the client ID and secret:
+
+```sh
+export MONGODB_ATLAS_CLIENT_ID="<your-client-id>"
+export MONGODB_ATLAS_CLIENT_SECRET="<your-client-secret>"
+```
+
+Alternatively, use an [API key pair](https://www.mongodb.com/docs/atlas/configure-api-access/#create-an-api-key):
 
 ```sh
 export MONGODB_ATLAS_PUBLIC_KEY="<your-public-key>"
 export MONGODB_ATLAS_PRIVATE_KEY="<your-private-key>"
 ```
 
-Alternatively, configure the provider block directly (avoid committing secrets). See the [provider authentication docs](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs#authentication).
+Configure the provider block directly only when environment variables are not an option (avoid committing secrets). See the [provider authentication docs](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs#authentication).
 
 ## Which module to start with
 
-Modules stack in a typical landing-zone order:
+Modules stack in a typical landing-zone order described in the [Architecture Center hierarchy guidance](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/):
 
 1. **Organization** ([terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization)): Org-level settings when you manage the Atlas org with Terraform.
 2. **Project** ([terraform-mongodbatlas-project](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-project)): Projects, project IAM, and alerts.
@@ -68,3 +74,5 @@ Replace `project` with the module you need. Each module README lists required in
 - Module README and upgrade guide in the repo you are using.
 - [Debug guide](./debug.md): Logging, triage, and where to file issues.
 - [Support](../SUPPORT.md): Atlas Support for contracted customers.
+- [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Landing zone, security, HA, and automation guidance that informs module defaults.
+- [Guidance for automated infrastructure provisioning](https://www.mongodb.com/docs/atlas/architecture/current/automation/): How Terraform fits alongside other Atlas automation options.

@@ -22,4 +22,4 @@ See [docs/repos.md](./docs/repos.md) for which repository owns which Atlas resou
 - One approving review is required; CODEOWNERS must approve paths they own.
 - Keep changes focused: hub prose, templates, or inherited defaults only.
 
-For context on how customers use the modules, start with [docs/getting-started.md](./docs/getting-started.md).
+For context on how customers use the modules, start with [docs/getting-started.md](./docs/getting-started.md). Official MongoDB guides include [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/) and the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/).

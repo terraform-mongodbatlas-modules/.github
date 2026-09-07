@@ -10,6 +10,8 @@ body:
         - [Getting started](../docs/getting-started.md)
         - [Debug guide](../docs/debug.md)
         - [Support](../SUPPORT.md)
+        - [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/)
+        - [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/)
 
         **Contracted Atlas customers** should use [MongoDB Atlas Support](https://support.mongodb.com/) for time-sensitive production questions.
 

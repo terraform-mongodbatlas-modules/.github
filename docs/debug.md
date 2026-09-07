@@ -54,3 +54,8 @@ GitHub issues are for community reporting; they do not replace Atlas Support for
 - [Getting started](./getting-started.md)
 - [Repository map](./repos.md)
 - [MongoDB Atlas provider documentation](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs)
+- [Get started with Terraform and the MongoDB Atlas provider](https://www.mongodb.com/docs/atlas/terraform/)
+- [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/)
+- [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/)
+- [Guidance for automated infrastructure provisioning](https://www.mongodb.com/docs/atlas/architecture/current/automation/)
+- [Atlas API reference](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/) (when correlating provider errors with Admin API behavior)

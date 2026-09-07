@@ -12,6 +12,12 @@ The landing page on [github.com/terraform-mongodbatlas-modules](https://github.c
 - [Repository map](./docs/repos.md)
 - [Debug guide](./docs/debug.md)
 
+## MongoDB documentation
+
+- [Atlas documentation](https://www.mongodb.com/docs/atlas/)
+- [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/)
+- [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/)
+
 ## Contributing and support
 
 - [CONTRIBUTING.md](./CONTRIBUTING.md)

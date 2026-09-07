@@ -12,7 +12,7 @@ GitHub issues in the [terraform-mongodbatlas-modules](https://github.com/terrafo
 - **Terraform provider:** Open an issue in [terraform-provider-mongodbatlas](https://github.com/mongodb/terraform-provider-mongodbatlas).
 - **This org hub** (profile, docs, inherited templates): Open an issue in this repository.
 
-Before opening an issue, check [docs/getting-started.md](./docs/getting-started.md) and [docs/debug.md](./docs/debug.md).
+Before opening an issue, check [docs/getting-started.md](./docs/getting-started.md), [docs/debug.md](./docs/debug.md), and the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/).
 
 ## Terraform core
 

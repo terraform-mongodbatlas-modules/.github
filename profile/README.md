@@ -7,11 +7,12 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 - **Opinionated defaults** for common Atlas landing-zone patterns across AWS, Azure, and GCP.
 - **Registry-published** modules with versioned releases and upgrade guides per repo.
 - **Runnable examples** in [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) you can copy and adapt.
+- **Aligned with MongoDB guidance** in the [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/) guide.
 
 ## Who should read what
 
-- **Customers and SAs:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough.
-- **Solutions architects:** [Repository map](../docs/repos.md) for ownership boundaries; module upgrade guides when planning version bumps.
+- **Customers and SAs:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
+- **Solutions architects:** [Repository map](../docs/repos.md) for ownership boundaries; [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) and [hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) guidance when planning scope; module upgrade guides when planning version bumps.
 - **TSE:** Public triage steps live in [Debug guide](../docs/debug.md). Internal pocket content links here; it does not duplicate getting started.
 
 ## Repositories
@@ -35,3 +36,10 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 ## Support
 
 See [SUPPORT.md](../SUPPORT.md). Contracted Atlas customers should use [MongoDB Atlas Support](https://support.mongodb.com/).
+
+## MongoDB documentation
+
+- [Atlas documentation](https://www.mongodb.com/docs/atlas/)
+- [Get started with Terraform and the Atlas provider](https://www.mongodb.com/docs/atlas/terraform/)
+- [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/)
+- [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/)
