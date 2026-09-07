@@ -8,7 +8,7 @@ If you have an active MongoDB Atlas support contract, open a support ticket in t
 
 GitHub issues in the [terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules) organization are for community reporting and assistance. We do not guarantee an SLA on GitHub responses.
 
-- **Module behavior or HCL:** Open an issue in the specific module repository (see [docs/repos.md](./docs/repos.md)).
+- **Module behavior or HCL:** Open an issue in the specific module repository (see the [org profile repository table](./profile/README.md#repositories)).
 - **Terraform provider:** Open an issue in [terraform-provider-mongodbatlas](https://github.com/mongodb/terraform-provider-mongodbatlas).
 - **This org hub** (profile, docs, inherited templates): Open an issue in this repository.
 

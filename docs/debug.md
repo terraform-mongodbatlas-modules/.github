@@ -26,7 +26,7 @@ Attach relevant log excerpts to GitHub issues; redact credentials and internal h
 | Symptom | Likely layer | Where to report |
 |---------|--------------|-----------------|
 | Atlas API error on a provider resource, wrong attribute on `mongodbatlas_*` resource, provider crash | [terraform-provider-mongodbatlas](https://github.com/mongodb/terraform-provider-mongodbatlas) | Provider repository |
-| Module default, variable validation, submodule wiring, or documented module behavior | Module repo listed in [repos.md](./repos.md) | That module's GitHub issues |
+| Module default, variable validation, submodule wiring, or documented module behavior | Module repo in the [org profile repository table](../profile/README.md#repositories) | That module's GitHub issues |
 | How the customer's root module calls modules, backend, or workspace layout | Caller's repository | Customer or internal team |
 | Wrong link, template, or hub doc in this org defaults repo | This repository | Issues in `.github` |
 
@@ -52,7 +52,7 @@ GitHub issues are for community reporting; they do not replace Atlas Support for
 ## Further reading
 
 - [Getting started](./getting-started.md)
-- [Repository map](./repos.md)
+- [Org profile repository table](../profile/README.md#repositories)
 - [MongoDB Atlas provider documentation](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs)
 - [Get started with Terraform and the MongoDB Atlas provider](https://www.mongodb.com/docs/atlas/terraform/)
 - [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/)

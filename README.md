@@ -4,12 +4,11 @@ Org community health files and public documentation hub for terraform-mongodbatl
 
 ## Org profile
 
-The landing page on [github.com/terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules) is [profile/README.md](./profile/README.md).
+The landing page on [github.com/terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules) is [profile/README.md](./profile/README.md). It includes the repository table and links to Architecture Center guidance.
 
 ## Hub documentation
 
 - [Getting started](./docs/getting-started.md)
-- [Repository map](./docs/repos.md)
 - [Debug guide](./docs/debug.md)
 
 ## MongoDB documentation

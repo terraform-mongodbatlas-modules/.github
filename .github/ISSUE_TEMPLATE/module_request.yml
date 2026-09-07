@@ -7,7 +7,7 @@ body:
       value: |
         Use this template for **new capability** requests across the org. Bugs in an existing module belong in that module's repository.
 
-        See [Repository map](../docs/repos.md) for what each module already owns.
+        See the [org profile repository table](../profile/README.md#repositories) for what each module already owns.
 
   - type: checkboxes
     attributes:

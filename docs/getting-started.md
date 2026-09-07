@@ -41,7 +41,7 @@ Modules stack in a typical landing-zone order described in the [Architecture Cen
 - **Greenfield:** You can compose all layers in one root module or split by team ownership.
 - **Brownfield:** Import or reference existing Atlas IDs; start at the layer that matches what is already in Atlas.
 
-See [repos.md](./repos.md) for what each repository owns.
+See the [org profile repository table](../profile/README.md#repositories) and [Architecture Center hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) for what each repository owns.
 
 ## Runnable path: atlas-examples
 
@@ -101,7 +101,7 @@ Use the `source` and `version` pattern shown above. Each module README lists req
 
 ## Next steps
 
-- [Repository map](./repos.md): Boundaries between modules.
+- [Org profile repository table](../profile/README.md#repositories) and [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Module boundaries and design guidance.
 - Module README and upgrade guide in the repo you are using.
 - [Debug guide](./debug.md): Logging, triage, and where to file issues.
 - [Support](../SUPPORT.md): Atlas Support for contracted customers.

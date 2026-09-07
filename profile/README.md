@@ -12,10 +12,14 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 ## Who should read what
 
 - **Customers and SAs:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
-- **Solutions architects:** [Repository map](../docs/repos.md) for ownership boundaries; [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) and [hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) guidance when planning scope; module upgrade guides when planning version bumps.
+- **Solutions architects:** The [repository table](#repositories) below for ownership boundaries; [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) and [hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) guidance when planning scope; module upgrade guides when planning version bumps.
 - **TSE:** Public triage steps live in [Debug guide](../docs/debug.md). Internal pocket content links here; it does not duplicate getting started.
 
 ## Repositories
+
+Modules map to the [Atlas org, project, and cluster hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) in the Architecture Center. Use [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) guidance when scoping a greenfield deployment. For industry reference architectures, see the [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
+
+Each module owns one layer of that stack. Use one CSP integration repo (AWS, Azure, or GCP) for private networking on your cloud. Module READMEs link Architecture Center pages when defaults trace to that guidance (for example backups, TLS, or autoscaling). **Upgrade guides** stay in each module repo; read them before bumping `version` constraints.
 
 | Repository | Registry | Role |
 |------------|----------|------|
@@ -30,7 +34,6 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 ## Hub documentation
 
 - [Getting started](../docs/getting-started.md): Credentials, first apply, and the examples path.
-- [Repository map](../docs/repos.md): What each repo owns and does not own.
 - [Debug guide](../docs/debug.md): Reproduce configs, logging, provider vs module, where to file issues.
 
 ## Support

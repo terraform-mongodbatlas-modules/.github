@@ -14,7 +14,7 @@ This repository holds:
 
 Terraform module code, examples, upgrade guides, and module-specific docs live in each module repo. To change module behavior or add features, open a pull request in that module and follow its `contributing/README.md`.
 
-See [docs/repos.md](./docs/repos.md) for which repository owns which Atlas resources.
+See the [org profile repository table](./profile/README.md#repositories) for which repository owns which Atlas resources.
 
 ## Pull requests in this repository
 
