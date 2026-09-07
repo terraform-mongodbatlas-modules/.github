@@ -1,0 +1,65 @@
+name: Bug report
+description: Wrong link, broken template, or incorrect content in the org hub or inherited defaults.
+title: "[Bug]: <your-title>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for opening an issue. **These GitHub issues** are for community reporting and assistance; we do not have a guaranteed SLA.
+
+        **If you have an active MongoDB Atlas Support contract**, use [MongoDB Atlas Support](https://support.mongodb.com/) for production issues with Atlas, the provider, or module deployments.
+
+        **Module or provider bugs** belong in the relevant module repository or [terraform-provider-mongodbatlas](https://github.com/mongodb/terraform-provider-mongodbatlas). See [docs/debug.md](../docs/debug.md).
+
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Search existing issues before opening a duplicate.
+      options:
+        - label: I have searched the existing issues
+          required: true
+
+  - type: input
+    id: affected_file
+    attributes:
+      label: Affected file or page
+      description: Which hub file, template, or org profile section is wrong?
+      placeholder: "Example: docs/getting-started.md, profile/README.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behaviour
+    attributes:
+      label: Current behavior
+      description: What is wrong today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behaviour
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

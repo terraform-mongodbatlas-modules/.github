@@ -1,0 +1,64 @@
+name: Module request
+description: Suggest a new module capability or a gap in the current module set.
+title: "[Module request]: <your-title>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for **new capability** requests across the org. Bugs in an existing module belong in that module's repository.
+
+        See [Repository map](../docs/repos.md) for what each module already owns.
+
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      options:
+        - label: I have searched the existing issues
+          required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What problem are you trying to solve?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: cloud
+    attributes:
+      label: Cloud provider
+      options:
+        - AWS
+        - Azure
+        - GCP
+        - Multi-cloud
+        - Not cloud-specific
+    validations:
+      required: true
+
+  - type: input
+    id: closest_module
+    attributes:
+      label: Closest existing module
+      description: Which repo is closest today, if any?
+      placeholder: "Example: terraform-mongodbatlas-atlas-aws"
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: How are you solving this without a new module feature?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

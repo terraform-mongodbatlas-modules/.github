@@ -1,0 +1,51 @@
+name: Question
+description: Ask about using the modules, hub docs, or where to get help.
+title: "[Question]: <your-title>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a question, check:
+
+        - [Getting started](../docs/getting-started.md)
+        - [Debug guide](../docs/debug.md)
+        - [Support](../SUPPORT.md)
+
+        **Contracted Atlas customers** should use [MongoDB Atlas Support](https://support.mongodb.com/) for time-sensitive production questions.
+
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      options:
+        - label: I have searched the existing issues
+          required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Getting started / first apply
+        - Which module to use
+        - Debugging / logging
+        - Hub or template content
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Include Terraform, provider, and module versions if relevant.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
