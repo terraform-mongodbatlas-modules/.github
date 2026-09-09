@@ -1,6 +1,10 @@
 # Debug guide
 
-Use this guide to narrow down problems in your Terraform setup, tell provider issues from module issues from your own root-module wiring, and choose where to report a bug.
+Use this guide to:
+
+- Narrow down problems in your Terraform setup.
+- Tell provider issues from module issues from your own root-module wiring.
+- Identify when to report a bug.
 
 ## Narrow down your configuration
 
@@ -15,6 +19,8 @@ Try to reproduce the problem with the **smallest root module** that still shows 
 
 ## Logging
 
+Use the following logging options to get more visibility into Terraform and the provider's behavior.
+
 - **Terraform core:** `TF_LOG=DEBUG terraform plan` (or `apply`). Use `TF_LOG_PATH` to write logs to a file.
 - **Provider:** `TF_LOG_PROVIDER=DEBUG` limits verbose output to the MongoDB Atlas provider. See [Terraform logging](https://developer.hashicorp.com/terraform/internals/debugging).
 - **Plan output:** Save `terraform plan -out=plan.out` and `terraform show -json plan.out` when you need structured plan details for an issue.
@@ -22,6 +28,8 @@ Try to reproduce the problem with the **smallest root module** that still shows 
 Attach relevant log excerpts to GitHub issues; redact credentials and internal hostnames.
 
 ## Provider vs module vs your root module
+
+Before you open an issue, use the following table to figure out which layer the problem actually lives in (the provider, a module, or your own configuration) so you report it in the right place.
 
 | Symptom | Likely layer | Where to report |
 |---------|--------------|-----------------|
@@ -34,13 +42,18 @@ When unsure, run the module's minimal example from its README. If the example fa
 
 ## Upgrade and plan surprises
 
+Module upgrades might introduce new defaults, renamed resources, or state changes that surprise your `terraform plan`. Consider the following before and after bumping a module version.
+
 - Read the **upgrade guide** in the module repo for the target version before bumping `version` in your root module.
 - **Unexpected plan changes** after a module upgrade often come from new defaults or renamed resources; check the changelog and upgrade guide.
-- **State moves** between module major versions may require `moved` blocks or a documented migration path; follow the module upgrade guide rather than tainting resources without a plan.
+- **New features via `default_feature_set`:** modules follow semantic versioning, so minor and patch upgrades do not break your configuration, but with the default `default_feature_set = "RECOMMENDED"` new recommended features are enabled automatically and can show up as plan changes after a minor upgrade. Set `default_feature_set = "STANDARD"` to opt out; see your module's README for details.
+- **State moves** between module major versions may require `moved` blocks or a documented migration path; follow the module's upgrade guide rather than tainting resources without a plan.
 
 Run `terraform plan` in a non-production workspace first when testing upgrades.
 
 ## Where to file issues
+
+Report each issue in the channel that matches its nature.
 
 - **Module bug or docs in a specific repo:** Open an issue in that module repository.
 - **Provider bug:** [terraform-provider-mongodbatlas issues](https://github.com/mongodb/terraform-provider-mongodbatlas/issues).

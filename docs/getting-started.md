@@ -20,11 +20,11 @@ export MONGODB_ATLAS_CLIENT_ID="<your-client-id>"
 export MONGODB_ATLAS_CLIENT_SECRET="<your-client-secret>"
 ```
 
-Alternatively, use an [API key pair](https://www.mongodb.com/docs/atlas/configure-api-access/#create-an-api-key):
+Alternatively, use an [API key pair](https://www.mongodb.com/docs/atlas/configure-api-access/#std-label-create-org-api-key):
 
 ```sh
-export MONGODB_ATLAS_PUBLIC_KEY="<your-public-key>"
-export MONGODB_ATLAS_PRIVATE_KEY="<your-private-key>"
+export MONGODB_ATLAS_PUBLIC_API_KEY="<your-public-key>"
+export MONGODB_ATLAS_PRIVATE_API_KEY="<your-private-key>"
 ```
 
 Configure the provider block directly only when environment variables are not an option (avoid committing secrets). See the [provider authentication docs](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs#authentication).
