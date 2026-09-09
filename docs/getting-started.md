@@ -36,7 +36,7 @@ Modules stack in a typical landing-zone order described in the [Architecture Cen
 1. **Organization** ([terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization)): Org-level settings when you manage the Atlas org with Terraform.
 2. **Project** ([terraform-mongodbatlas-project](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-project)): Projects, project IAM, and alerts.
 3. **Cluster** ([terraform-mongodbatlas-cluster](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-cluster)): Replica sets and sharded clusters.
-4. **Cloud integration** (pick one): [AWS](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-aws), [Azure](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-azure), or [GCP](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-gcp) for private endpoints, peering, and related CSP resources.
+4. **Cloud integration** (pick one): [AWS](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-aws), [Azure](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-azure), or [GCP](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-gcp) for private connectivity (PrivateLink or Private Service Connect), cloud-provider access, encryption at rest, and backup export.
 
 - **Greenfield:** You can compose all layers in one root module or split by team ownership.
 - **Brownfield:** Import or reference existing Atlas IDs; start at the layer that matches what is already in Atlas.
