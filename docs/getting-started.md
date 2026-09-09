@@ -7,7 +7,7 @@ This guide covers your first Terraform apply with the terraform-mongodbatlas-mod
 - A MongoDB Atlas organization (or permission to create one). See [Atlas organizations](https://www.mongodb.com/docs/atlas/tutorial/manage-organizations/).
 - Atlas programmatic credentials (see below). See [Configure API access](https://www.mongodb.com/docs/atlas/configure-api-access/).
 - [Terraform](https://developer.hashicorp.com/terraform/install) 1.10 or newer (matches current module requirements).
-- Cloud-provider credentials if you use a CSP integration module (AWS, Azure, or GCP).
+- Cloud-provider credentials if you use a cloud integration module (AWS, Azure, or GCP).
 
 ## Credentials
 
@@ -33,15 +33,15 @@ Configure the provider block directly only when environment variables are not an
 
 Modules stack in a typical landing-zone order described in the [Architecture Center hierarchy guidance](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/):
 
-1. **Organization** ([terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization)): Org-level settings when you manage the Atlas org with Terraform.
-2. **Project** ([terraform-mongodbatlas-project](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-project)): Projects, project IAM, and alerts.
+1. **Organization** ([terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization)): Atlas organization settings and resource policies when you manage the Atlas organization with Terraform.
+2. **Project** ([terraform-mongodbatlas-project](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-project)): Atlas projects: settings, limits, access lists, and alerts.
 3. **Cluster** ([terraform-mongodbatlas-cluster](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-cluster)): Replica sets and sharded clusters.
 4. **Cloud integration** (pick one): [AWS](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-aws), [Azure](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-azure), or [GCP](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-gcp) for private connectivity (PrivateLink or Private Service Connect), cloud-provider access, encryption at rest, and backup export.
 
-- **Greenfield:** You can compose all layers in one root module or split by team ownership.
-- **Brownfield:** Import or reference existing Atlas IDs; start at the layer that matches what is already in Atlas.
+- **Starting from scratch:** You can compose all layers in one root module or split by team ownership.
+- **Working with an existing Atlas organization:** Import or reference existing Atlas IDs; start at the layer that matches what is already in Atlas.
 
-See the [org profile repository table](../profile/README.md#repositories) and [Architecture Center hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) for what each repository owns.
+See the [organization profile repository table](../profile/README.md#repositories) and [Architecture Center hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) for what each repository owns.
 
 ## Runnable path: atlas-examples
 
@@ -55,7 +55,7 @@ Follow the README in the example directory for prerequisites, `terraform.tfvars`
 
 ## Versioning
 
-Each module is **generally available (GA)** and formally supported by MongoDB, including bug fixes, security patches, and backward-compatible enhancements. See the stability commitment in each module README (for example the project module's two-year v1 stability window once that major line ships).
+Each module is **generally available (GA)** and formally supported by MongoDB, including bug fixes, security patches, and backward-compatible enhancements. See the stability commitment in each module README (for example the project module's two-year v1 stability window once v1 is released).
 
 **v1.0.0** releases across the module set are **coming soon**. Until then, Registry publishes **0.x** versions. Pin the minor line you tested; do not leave `version` unset in production root modules.
 
@@ -63,9 +63,9 @@ Always use a **pessimistic constraint (`~>`)** in your root module for:
 
 - Every `terraform-mongodbatlas-modules/*` `module` block
 - The `mongodbatlas` provider in `required_providers`
-- The cloud provider (`aws`, `azurerm`, or `google`) when you use a CSP integration module
+- The cloud provider (`aws`, `azurerm`, or `google`) when you use a cloud integration module
 
-Example for a project module today (swap `~> 0.3` for `~> 1.0` after the v1 line is published):
+Example for a project module today (swap `~> 0.3` for `~> 1.0` after v1 is released):
 
 ```hcl
 terraform {
@@ -101,7 +101,7 @@ Use the `source` and `version` pattern shown above. Each module README lists req
 
 ## Next steps
 
-- [Org profile repository table](../profile/README.md#repositories) and [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Module boundaries and design guidance.
+- [Organization profile repository table](../profile/README.md#repositories) and [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Module boundaries and design guidance.
 - Module README and upgrade guide in the repo you are using.
 - [Debug guide](./debug.md): Logging, triage, and where to file issues.
 - [Support](../SUPPORT.md): Atlas Support for contracted customers.

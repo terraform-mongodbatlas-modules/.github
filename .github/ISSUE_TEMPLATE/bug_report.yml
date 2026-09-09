@@ -1,5 +1,5 @@
 name: Bug report
-description: Wrong link, broken template, or incorrect content in the org hub or inherited defaults.
+description: Wrong link, broken template, or incorrect content in the organization profile, docs, or templates.
 title: "[Bug]: <your-title>"
 body:
   - type: markdown
@@ -23,7 +23,7 @@ body:
     id: affected_file
     attributes:
       label: Affected file or page
-      description: Which hub file, template, or org profile section is wrong?
+      description: Which file, template, or profile section is wrong?
       placeholder: "Example: docs/getting-started.md, profile/README.md"
     validations:
       required: true

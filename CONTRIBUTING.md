@@ -6,15 +6,15 @@ Thank you for your interest in improving the terraform-mongodbatlas-modules orga
 
 This repository holds:
 
-- The [org profile](./profile/README.md) shown on [github.com/terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules)
-- Public hub docs under [docs/](./docs/)
-- Org-default community health files (support, security, conduct, issue and PR templates) inherited by module repos that do not override them
+- The [organization profile](./profile/README.md) shown on [github.com/terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules)
+- Public documentation under [docs/](./docs/)
+- Organization-level community health files (support, security, conduct, issue and PR templates) that module repositories inherit unless they define their own
 
 ## What belongs in a module repository
 
 Terraform module code, examples, upgrade guides, and module-specific docs live in each module repo. To change module behavior or add features, open a pull request in that module and follow its `contributing/README.md`.
 
-See the [org profile repository table](./profile/README.md#repositories) for which repository owns which Atlas resources.
+See the [organization profile repository table](./profile/README.md#repositories) for which repository owns which Atlas resources.
 
 ## Pull requests in this repository
 

@@ -1,8 +1,8 @@
 # .github
 
-Org community health files and public documentation hub for terraform-mongodbatlas-modules.
+Organization community health files and public documentation hub for terraform-mongodbatlas-modules.
 
-## Org profile
+## Organization profile
 
 The landing page on [github.com/terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules) is [profile/README.md](./profile/README.md). It includes the repository table and links to Architecture Center guidance.
 
