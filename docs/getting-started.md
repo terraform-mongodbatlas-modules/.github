@@ -53,6 +53,10 @@ The fastest way to see a full stack is [atlas-examples](https://github.com/terra
 
 Follow the README in the example directory for prerequisites, `terraform.tfvars`, and apply steps. Examples are reference implementations, not production templates.
 
+## Runnable path: one-apply chatbot demo
+
+For a single apply that ends at a running application, see the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot) ([Registry](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/aws-chatbot/mongodbatlas/latest)). It composes the modules on this page into a deployed hybrid search chatbot on AWS: Atlas over PrivateLink, a private ECS Fargate service, and CloudFront at the edge. Like `atlas-examples`, it is a demo and carries no stability guarantee.
+
 ## Versioning
 
 Each module is **generally available (GA)** and formally supported by MongoDB, including bug fixes, security patches, and backward-compatible enhancements. See the stability commitment in each module README (for example the project module's two-year v1 stability window once v1 is released).
