@@ -55,7 +55,7 @@ Follow the README in the example directory for prerequisites, `terraform.tfvars`
 
 ## Runnable path: one-apply chatbot demo
 
-For a single apply that ends at a running application, see the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot) ([Registry](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/aws-chatbot/mongodbatlas/latest)). It composes the modules on this page into a deployed hybrid search chatbot on AWS: Atlas over PrivateLink, a private ECS Fargate service, and CloudFront at the edge. Like `atlas-examples`, it is a demo and carries no stability guarantee.
+For a single apply that results in a running application, see the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot) ([Registry](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/aws-chatbot/mongodbatlas/latest)). This demo brings together the modules on this page to deploy a hybrid search chatbot on AWS, using Atlas over PrivateLink, a private ECS Fargate service, and CloudFront at the edge. Like `atlas-examples`, this is a demo and carries no stability guarantee.
 
 ## Versioning
 
