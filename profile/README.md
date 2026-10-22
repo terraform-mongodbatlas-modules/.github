@@ -8,12 +8,12 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 - **Registry-published** modules with versioned releases and upgrade guides per repo.
 - **Stability commitment:** MongoDB formally supports each module with bug fixes, security patches, and backward-compatible enhancements; v1 releases carry a two-year no-breaking-changes stability window (see each module README).
 - **Semantic versioning:** breaking changes land only in new major versions, so minor and patch upgrades keep your configuration working; pin with pessimistic constraints (`~>`) and upgrade on your schedule.
-- **Runnable examples** in [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) you can copy and adapt.
+- **Runnable examples** in [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) you can copy and adapt, plus a one-apply [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot) that deploys a working chat app on AWS.
 - **Aligned with MongoDB guidance** in the [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Deploy MongoDB Atlas with Terraform Modules](https://www.mongodb.com/docs/atlas/terraform-modules-landing-zone/) guide.
 
 ## Who should read what
 
-- **Developers and platform engineers deploying Atlas with Terraform:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
+- **Developers and platform engineers deploying Atlas with Terraform:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For a single apply that results in a running app, start with the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot). For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
 - **Planning a landing zone:** Use the [repository table](#repositories) below for what each module covers, [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) and [hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) guidance when planning scope, and each module's upgrade guide when planning version bumps.
 - **Debugging a deployment:** [Debug guide](../docs/debug.md) covers logging, how to tell provider issues from module issues, and where to report a bug.
 
@@ -23,6 +23,8 @@ Modules map to the [Atlas organization, project, and cluster hierarchy](https://
 
 Each module owns one layer of that stack. Use one cloud integration repository (AWS, Azure, or GCP) for cloud-provider access, private connectivity (PrivateLink or Private Service Connect), encryption at rest, and backup export on your cloud. Module READMEs link Architecture Center pages when defaults trace to that guidance (for example backups, TLS, or autoscaling). **Upgrade guides** stay in each module repo; read them before bumping `version` constraints.
 
+### Supported modules
+
 | Repository | Registry | Role |
 |------------|----------|------|
 | [terraform-mongodbatlas-organization](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-organization) | [organization](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/organization/mongodbatlas/latest) | Atlas organizations (`create` submodule) and organization resource policies (`existing` submodule) |
@@ -31,7 +33,13 @@ Each module owns one layer of that stack. Use one cloud integration repository (
 | [terraform-mongodbatlas-atlas-aws](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-aws) | [atlas-aws](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/atlas-aws/mongodbatlas/latest) | Atlas AWS integrations: PrivateLink endpoints, cloud-provider access (IAM role and policy), encryption at rest, backup export, log integration |
 | [terraform-mongodbatlas-atlas-azure](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-azure) | [atlas-azure](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/atlas-azure/mongodbatlas/latest) | Atlas Azure integrations: Private Link, service principal authorization, encryption at rest, backup export, log integration |
 | [terraform-mongodbatlas-atlas-gcp](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-gcp) | [atlas-gcp](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/atlas-gcp/mongodbatlas/latest) | Atlas GCP integrations: Private Service Connect, cloud-provider access, encryption at rest, backup export, log integration |
-| [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) | — | End-to-end example stacks per cloud (not a Registry module) |
+
+### Examples and demos
+
+The modules above are supported building blocks: each owns one layer of the stack and carries the stability commitment. The repositories below are end-to-end instead: they compose the modules into a working stack, carry no stability guarantee, and are starting points to copy rather than supported products.
+
+- **[atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples):** Example stacks per cloud provider that combine the modules above. There is one directory per example.
+- **[terraform-mongodbatlas-aws-chatbot](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot):** Deploys a hybrid search chatbot on AWS in one `terraform apply`, using Atlas over PrivateLink, a private ECS Fargate service, and CloudFront at the edge. It is a demo of a production-shaped deployment, not a supported product. The repository might be archived if adoption does not materialize. See the [Registry listing](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/aws-chatbot/mongodbatlas/latest).
 
 ## Hub documentation
 
