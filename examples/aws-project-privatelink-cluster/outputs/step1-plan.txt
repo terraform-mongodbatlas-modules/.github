@@ -1,0 +1,321 @@
+# Atlas and atlas-aws resources only. The terraform-aws-modules/vpc resources are omitted;
+# the Plan: totals are from the full plan.
+
+Terraform will perform the following actions:
+  # module.atlas_aws.data.aws_subnet.privatelink["us-east-1"] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_subnet" "privatelink" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = (known after apply)
+      + availability_zone                              = (known after apply)
+      + availability_zone_id                           = (known after apply)
+      + available_ip_address_count                     = (known after apply)
+      + cidr_block                                     = (known after apply)
+      + customer_owned_ipv4_pool                       = (known after apply)
+      + default_for_az                                 = (known after apply)
+      + enable_dns64                                   = (known after apply)
+      + enable_lni_at_device_index                     = (known after apply)
+      + enable_resource_name_dns_a_record_on_launch    = (known after apply)
+      + enable_resource_name_dns_aaaa_record_on_launch = (known after apply)
+      + id                                             = (known after apply)
+      + ipv6_cidr_block                                = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = (known after apply)
+      + map_customer_owned_ip_on_launch                = (known after apply)
+      + map_public_ip_on_launch                        = (known after apply)
+      + outpost_arn                                    = (known after apply)
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + region                                         = "us-east-1"
+      + state                                          = (known after apply)
+      + tags                                           = (known after apply)
+      + vpc_id                                         = (known after apply)
+    }
+  # module.atlas_aws.data.aws_vpc.privatelink["us-east-1"] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_vpc" "privatelink" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = (known after apply)
+      + cidr_block_associations              = (known after apply)
+      + default                              = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = (known after apply)
+      + enable_dns_support                   = (known after apply)
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_associations         = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + region                               = "us-east-1"
+      + state                                = (known after apply)
+      + tags                                 = (known after apply)
+    }
+  # module.atlas_aws.mongodbatlas_privatelink_endpoint.this["us-east-1"] will be created
+  + resource "mongodbatlas_privatelink_endpoint" "this" {
+      + endpoint_group_names             = (known after apply)
+      + endpoint_service_name            = (known after apply)
+      + error_message                    = (known after apply)
+      + id                               = (known after apply)
+      + interface_endpoints              = (known after apply)
+      + private_endpoints                = (known after apply)
+      + private_link_id                  = (known after apply)
+      + private_link_service_name        = (known after apply)
+      + private_link_service_resource_id = (known after apply)
+      + project_id                       = (known after apply)
+      + provider_name                    = "AWS"
+      + region                           = "us-east-1"
+      + region_name                      = (known after apply)
+      + service_attachment_names         = (known after apply)
+      + status                           = (known after apply)
+  # module.atlas_cluster.data.mongodbatlas_advanced_clusters.this will be read during apply
+  # (config refers to values not yet known)
+ <= data "mongodbatlas_advanced_clusters" "this" {
+      + project_id = (known after apply)
+      + results    = (known after apply)
+    }
+  # module.atlas_cluster.mongodbatlas_advanced_cluster.this will be created
+  + resource "mongodbatlas_advanced_cluster" "this" {
+      + advanced_configuration                                 = {
+          + change_stream_options_pre_and_post_images_expire_after_seconds = (known after apply)
+          + custom_openssl_cipher_config_tls12                             = (known after apply)
+          + custom_openssl_cipher_config_tls13                             = (known after apply)
+          + default_max_time_ms                                            = (known after apply)
+          + default_write_concern                                          = "majority"
+          + javascript_enabled                                             = false
+          + minimum_enabled_tls_protocol                                   = "TLS1_3"
+          + no_table_scan                                                  = (known after apply)
+          + oplog_min_retention_hours                                      = (known after apply)
+          + oplog_size_mb                                                  = (known after apply)
+          + sample_refresh_interval_bi_connector                           = (known after apply)
+          + sample_size_bi_connector                                       = (known after apply)
+          + tls_cipher_config_mode                                         = (known after apply)
+          + transaction_lifetime_limit_seconds                             = (known after apply)
+        }
+      + backup_enabled                                         = true
+      + bi_connector_config                                    = (known after apply)
+      + cluster_id                                             = (known after apply)
+      + cluster_type                                           = "SHARDED"
+      + config_server_management_mode                          = "ATLAS_MANAGED"
+      + config_server_type                                     = (known after apply)
+      + connection_strings                                     = (known after apply)
+      + create_date                                            = (known after apply)
+      + delete_on_create_timeout                               = true
+      + effective_database_edition                             = (known after apply)
+      + encryption_at_rest_provider                            = (known after apply)
+      + global_cluster_self_managed_sharding                   = (known after apply)
+      + mongo_db_major_version                                 = (known after apply)
+      + mongo_db_version                                       = (known after apply)
+      + name                                                   = "lz-walkthrough"
+      + paused                                                 = (known after apply)
+      + pit_enabled                                            = true
+      + project_id                                             = (known after apply)
+      + redact_client_log_data                                 = true
+      + replica_set_scaling_strategy                           = (known after apply)
+      + replication_specs                                      = (known after apply)
+      + retain_backups_enabled                                 = true
+      + root_cert_type                                         = (known after apply)
+      + state_name                                             = (known after apply)
+      + tags                                                   = {
+          + "environment" = "walkthrough"
+          + "team"        = "platform"
+        }
+      + termination_protection_enabled                         = (known after apply)
+      + use_aws_time_based_snapshot_copy_for_fast_initial_sync = (known after apply)
+      + version_release_system                                 = (known after apply)
+    }
+  # module.atlas_project.mongodbatlas_project.this[0] will be created
+  + resource "mongodbatlas_project" "this" {
+      + cluster_count                                           = (known after apply)
+      + created                                                 = (known after apply)
+      + id                                                      = (known after apply)
+      + ip_addresses                                            = (known after apply)
+      + is_cluster_ai_assistant_enabled                         = true
+      + is_collect_database_specifics_statistics_enabled        = (known after apply)
+      + is_data_explorer_enabled                                = (known after apply)
+      + is_data_explorer_gen_ai_features_enabled                = true
+      + is_data_explorer_gen_ai_sample_document_passing_enabled = true
+      + is_extended_storage_sizes_enabled                       = (known after apply)
+      + is_native_reranking_enabled                             = true
+      + is_performance_advisor_enabled                          = (known after apply)
+      + is_realtime_performance_panel_enabled                   = (known after apply)
+      + is_schema_advisor_enabled                               = (known after apply)
+      + is_slow_operation_thresholding_enabled                  = (known after apply)
+      + name                                                    = "lz-walkthrough"
+      + org_id                                                  = "<atlas-id>"
+      + region_usage_restrictions                               = (known after apply)
+      + tags                                                    = {
+          + "environment" = "walkthrough"
+          + "team"        = "platform"
+        }
+      + with_default_alerts_settings                            = false
+    }
+  # module.atlas_aws.module.privatelink["us-east-1"].data.aws_subnet.selected[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_subnet" "selected" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = (known after apply)
+      + availability_zone                              = (known after apply)
+      + availability_zone_id                           = (known after apply)
+      + available_ip_address_count                     = (known after apply)
+      + cidr_block                                     = (known after apply)
+      + customer_owned_ipv4_pool                       = (known after apply)
+      + default_for_az                                 = (known after apply)
+      + enable_dns64                                   = (known after apply)
+      + enable_lni_at_device_index                     = (known after apply)
+      + enable_resource_name_dns_a_record_on_launch    = (known after apply)
+      + enable_resource_name_dns_aaaa_record_on_launch = (known after apply)
+      + id                                             = (known after apply)
+      + ipv6_cidr_block                                = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = (known after apply)
+      + map_customer_owned_ip_on_launch                = (known after apply)
+      + map_public_ip_on_launch                        = (known after apply)
+      + outpost_arn                                    = (known after apply)
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + region                                         = "us-east-1"
+      + state                                          = (known after apply)
+      + tags                                           = (known after apply)
+      + vpc_id                                         = (known after apply)
+    }
+  # module.atlas_aws.module.privatelink["us-east-1"].data.aws_vpc.this[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_vpc" "this" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = (known after apply)
+      + cidr_block_associations              = (known after apply)
+      + default                              = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = (known after apply)
+      + enable_dns_support                   = (known after apply)
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = (known after apply)
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_associations         = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + region                               = "us-east-1"
+      + state                                = (known after apply)
+      + tags                                 = (known after apply)
+    }
+  # module.atlas_aws.module.privatelink["us-east-1"].data.mongodbatlas_privatelink_endpoint_service.this will be read during apply
+  # (config refers to values not yet known)
+ <= data "mongodbatlas_privatelink_endpoint_service" "this" {
+      + aws_connection_status            = (known after apply)
+      + azure_status                     = (known after apply)
+      + delete_requested                 = (known after apply)
+      + endpoint_service_id              = (known after apply)
+      + endpoints                        = (known after apply)
+      + error_message                    = (known after apply)
+      + gcp_endpoint_status              = (known after apply)
+      + gcp_project_id                   = (known after apply)
+      + gcp_status                       = (known after apply)
+      + id                               = (known after apply)
+      + interface_endpoint_id            = (known after apply)
+      + port_mapping_enabled             = (known after apply)
+      + private_endpoint_connection_name = (known after apply)
+      + private_endpoint_ip_address      = (known after apply)
+      + private_endpoint_resource_id     = (known after apply)
+      + private_link_id                  = (known after apply)
+      + project_id                       = (known after apply)
+      + provider_name                    = "AWS"
+    }
+  # module.atlas_aws.module.privatelink["us-east-1"].aws_security_group.this[0] will be created
+  + resource "aws_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = "MongoDB Atlas PrivateLink"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "atlas-privatelink-"
+      + owner_id               = (known after apply)
+      + region                 = "us-east-1"
+      + revoke_rules_on_delete = false
+      + tags_all               = {
+          + "environment" = "walkthrough"
+          + "team"        = "platform"
+        }
+      + vpc_id                 = (known after apply)
+  # module.atlas_aws.module.privatelink["us-east-1"].aws_security_group_rule.ingress_cidr[0] will be created
+  + resource "aws_security_group_rule" "ingress_cidr" {
+      + cidr_blocks              = (known after apply)
+      + description              = "MongoDB Atlas PrivateLink"
+      + from_port                = 1024
+      + id                       = (known after apply)
+      + protocol                 = "tcp"
+      + region                   = "us-east-1"
+      + security_group_id        = (known after apply)
+      + security_group_rule_id   = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 65535
+      + type                     = "ingress"
+    }
+  # module.atlas_aws.module.privatelink["us-east-1"].aws_vpc_endpoint.this[0] will be created
+  + resource "aws_vpc_endpoint" "this" {
+      + arn                   = (known after apply)
+      + cidr_blocks           = (known after apply)
+      + dns_entry             = (known after apply)
+      + id                    = (known after apply)
+      + ip_address_type       = (known after apply)
+      + network_interface_ids = (known after apply)
+      + owner_id              = (known after apply)
+      + policy                = (known after apply)
+      + prefix_list_id        = (known after apply)
+      + private_dns_enabled   = (known after apply)
+      + region                = "us-east-1"
+      + requester_managed     = (known after apply)
+      + route_table_ids       = (known after apply)
+      + security_group_ids    = (known after apply)
+      + service_name          = (known after apply)
+      + service_region        = (known after apply)
+      + state                 = (known after apply)
+      + subnet_ids            = (known after apply)
+      + tags_all              = {
+          + "environment" = "walkthrough"
+          + "team"        = "platform"
+        }
+      + vpc_endpoint_type     = "Interface"
+      + vpc_id                = (known after apply)
+  # module.atlas_aws.module.privatelink["us-east-1"].mongodbatlas_privatelink_endpoint_service.this will be created
+  + resource "mongodbatlas_privatelink_endpoint_service" "this" {
+      + aws_connection_status            = (known after apply)
+      + azure_status                     = (known after apply)
+      + delete_requested                 = (known after apply)
+      + endpoint_group_name              = (known after apply)
+      + endpoint_service_id              = (known after apply)
+      + error_message                    = (known after apply)
+      + gcp_endpoint_status              = (known after apply)
+      + gcp_status                       = (known after apply)
+      + id                               = (known after apply)
+      + interface_endpoint_id            = (known after apply)
+      + port_mapping_enabled             = (known after apply)
+      + private_endpoint_connection_name = (known after apply)
+      + private_endpoint_ip_address      = (known after apply)
+      + private_endpoint_resource_id     = (known after apply)
+      + private_link_id                  = (known after apply)
+      + project_id                       = (known after apply)
+      + provider_name                    = "AWS"
+  # module.atlas_cluster.module.backup_schedule[0].mongodbatlas_cloud_backup_schedule.this will be created
+  + resource "mongodbatlas_cloud_backup_schedule" "this" {
+      + auto_export_enabled                      = false
+      + cluster_id                               = (known after apply)
+      + cluster_name                             = "lz-walkthrough"
+      + copy_policy_items_enabled                = false
+      + id                                       = (known after apply)
+      + id_policy                                = (known after apply)
+      + next_snapshot                            = (known after apply)
+      + project_id                               = (known after apply)
+      + reference_hour_of_day                    = (known after apply)
+      + reference_minute_of_hour                 = (known after apply)
+      + restore_window_days                      = (known after apply)
+      + skip_destroy                             = false
+      + update_snapshots                         = (known after apply)
+      + use_org_and_group_names_in_export_prefix = (known after apply)
+Plan: 21 to add, 0 to change, 0 to destroy.
