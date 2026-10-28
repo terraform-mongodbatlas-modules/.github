@@ -9,7 +9,7 @@ The examples come from the [project, PrivateLink, and cluster walkthrough](../ex
 Each resource line in a plan starts with a symbol:
 
 - **`+` create:** A new resource. Safe in most cases.
-- **`~` update in-place:** Atlas or AWS changes the existing resource. The cluster stays available, but some updates, such as adding a region, take 15 minutes or more.
+- **`~` update in-place:** Atlas or AWS changes the existing resource without deleting it. The impact depends on the change: adding a region can take 15 minutes or more, and some updates (pausing the cluster, for example) make it unavailable or trigger rolling restarts. Check the specific attribute before applying.
 - **`-/+` destroy and then create (`must be replaced`):** Terraform deletes the resource and creates a new one. On a cluster, this deletes the cluster and its data. Stop and find the attribute marked `# forces replacement` before applying.
 - **`-` destroy:** Terraform deletes the resource.
 - **`<=` read:** A data source. `will be read during apply` is expected when it depends on a resource that does not exist yet or has pending changes. See [Replacements when nothing changed](#replacements-when-nothing-changed) for when a deferred read turns into a replacement.
@@ -71,7 +71,7 @@ module.atlas_aws.data.aws_subnet.privatelink["us-east-1"] will be read during ap
 
 If a deferred value feeds an attribute that forces replacement, the plan shows a replacement even though the real inputs did not change. What to check:
 
-- **Pass values by reference instead of looking them up.** If your root module already creates the VPC, pass its `vpc_id` into the module instead of letting the module look it up from a subnet ID. The walkthrough passes `subnet_ids` from the vpc module output into atlas-aws this way.
+- **Pass values by reference instead of looking them up.** If your root module already creates the VPC, pass the module's outputs as inputs instead of letting the module look the values up itself, and avoid a `depends_on` that only orders the modules. Which value to pass depends on the module's inputs: the walkthrough passes `subnet_ids` from the vpc module output into atlas-aws, which then reads the subnet and VPC data itself; modules that expose a `vpc_id` input take that instead.
 - **Avoid `depends_on` on a `module` block.** It applies to every resource and data source inside the module, so one ordering dependency can defer unrelated lookups. Passing an output as an input orders the modules instead.
 - **A deferred read on its own is harmless.** Check what consumes it: outputs and in-place attributes are fine; `# forces replacement` is not.
 
@@ -121,6 +121,8 @@ Detail: A private endpoint service already exists for AWS region US_EAST_1.
 ```
 
 The Atlas project already has a PrivateLink endpoint service for that region, but Terraform does not track it. This happens when resources are removed from state, or a previous apply or destroy stopped partway.
+
+First check that no other Terraform state or workspace manages the endpoint: if it does, plan and destroy or change it in that state instead of importing it here. Importing the endpoint into two states makes both manage it, and a later destroy or change in either can break the other deployment. Only import after confirming this state owns it.
 
 Import the existing endpoint service instead of creating it:
 

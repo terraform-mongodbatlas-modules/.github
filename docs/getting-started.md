@@ -45,7 +45,7 @@ See the [organization profile repository table](../profile/README.md#repositorie
 
 ## Runnable path: project, PrivateLink, and cluster walkthrough
 
-Start with the [project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md). It combines the project, atlas-aws, and cluster modules at `~> 1.0` in a single `main.tf` with no variables. Part 1 deploys a single-region sharded cluster over AWS PrivateLink. Part 2 adds a second region, and the README shows each configuration change next to the plan it produces, so you can compare your own plan against a verified run.
+Start with the [project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md). It combines the project, atlas-aws, and cluster modules at `~> 1.0` in a single `main.tf` with no variables. Step 1 deploys a single-region sharded cluster over AWS PrivateLink. Step 2 adds a second region, and the README shows each configuration change next to the plan it produces, so you can compare your own plan against a verified run.
 
 ## Runnable path: atlas-examples
 

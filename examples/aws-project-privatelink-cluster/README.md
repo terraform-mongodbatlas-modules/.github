@@ -12,7 +12,7 @@ Everything lives in one [main.tf](./main.tf). Every value is hard-coded except `
 - **Step 2:** Add a second region (us-west-2). Uncomment every block marked `STEP 2`. You can start here: uncomment the blocks first, and this becomes a two-region deployment from a single apply. This walkthrough runs it after step 1 to show the incremental change and the plan it produces.
 - **Step 3 (talkthrough only):** Insert a third region in the middle of the `regions` list. Not part of `main.tf`; shows a plan that needs extra attention.
 
-Verified with project 1.0.0, atlas-aws 1.0.0, cluster 1.0.0, [terraform-aws-modules/vpc](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) 6.7.3, `mongodb/mongodbatlas` 2.20.1, `hashicorp/aws` 6.70.0, and Terraform 1.15.9 on 2026-10-28. Captured output is in [outputs/](./outputs) with IDs and hostnames redacted.
+Verified with project 1.0.0, atlas-aws 1.0.0, cluster 1.0.0, [terraform-aws-modules/vpc](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) 6.7.3, `mongodb/mongodbatlas` 2.20.1, `hashicorp/aws` 6.70.0, and Terraform 1.15.9 on 2026-10-28. No `.terraform.lock.hcl` is committed: a fresh `terraform init` resolves the latest module and provider versions within the `~>` constraints, so what you get can be newer than the verified run. Captured output is in [outputs/](./outputs) with IDs and hostnames redacted.
 
 ## Prerequisites
 
@@ -55,12 +55,12 @@ The plan also lists data sources marked `will be read during apply`. They depend
 
 - `0 to change, 0 to destroy` on a first apply.
 - The cluster and the PrivateLink endpoint service take the longest, and they run in parallel. In the verified run, the cluster took 20 minutes and the endpoint service 13 minutes. Apply summary: [outputs/step1-apply.txt](./outputs/step1-apply.txt).
-- After apply, `terraform output privatelink` shows `status = "AVAILABLE"` for `us-east-1`, and `terraform output connection_strings` includes a `private_endpoint` entry with a `mongodb+srv://lz-walkthrough-pl-0-lb...` string.
+- After apply, `terraform output privatelink` shows `status = "AVAILABLE"` for `us-east-1`, and `terraform output connection_strings` includes a `private_endpoint` entry with a `mongodb+srv://lz-walkthrough-pl-0-lb...` string. If the private entry is missing, the cluster finished before the endpoint service became available: wait for `status = "AVAILABLE"`, run `terraform apply -refresh-only`, then read the output again.
 - Running `terraform plan` again shows `No changes. Your infrastructure matches the configuration.`
 
 ## Step 2: Add a second region
 
-Uncomment the three blocks marked `STEP 2` in `main.tf`. Remove only the leading `# ` on each line.
+Uncomment the three blocks marked `STEP 2` in `main.tf`. Remove only the leading `# ` on each line, then run `terraform init` again: it installs the newly uncommented `module "vpc_region2"` block before the plan can run.
 
 ### Configuration change
 
@@ -155,7 +155,7 @@ The plan also shows the existing `private_endpoint` connection string going to `
 
 ## Step 3 (talkthrough): Insert a region in the middle
 
-This step is not in `main.tf`. It shows what happens to the cluster when a region is added in the middle of `regions` instead of at the end. To try it, add a third VPC module (us-east-2, for example `10.30.0.0/16`) and a `us-east-2` PrivateLink entry the same way as in step 2, then insert the region:
+This step is not in `main.tf`. It shows what happens to the cluster when a region is added in the middle of `regions` instead of at the end. To try it, add a third VPC module (us-east-2, for example `10.30.0.0/16`) and a `us-east-2` PrivateLink entry the same way as in step 2, run `terraform init` to install the new module block, then insert the region:
 
 ```diff
    regions = [
@@ -223,7 +223,7 @@ The plan is still `0 to destroy`, but it needs extra attention:
 terraform destroy
 ```
 
-If the destroy fails partway, run it again. If you removed resources from state or deleted them outside Terraform, see [Troubleshooting plan changes](../../docs/troubleshooting.md).
+If the destroy fails partway, run it again. The cluster destroys with `retain_backups_enabled = true`, so its backup snapshots are retained; check for retained snapshots afterwards and delete them if you do not need them, as they can incur charges. If you removed resources from state or deleted them outside Terraform, see [Troubleshooting plan changes](../../docs/troubleshooting.md).
 
 ## Next steps
 
