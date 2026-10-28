@@ -223,7 +223,7 @@ The plan is still `0 to destroy`, but it needs extra attention:
 terraform destroy
 ```
 
-If the destroy fails partway, run it again. The cluster destroys with `retain_backups_enabled = true`, so its backup snapshots are retained; check for retained snapshots afterwards and delete them if you do not need them, as they can incur charges. If you removed resources from state or deleted them outside Terraform, see [Troubleshooting plan changes](../../docs/troubleshooting.md).
+If the destroy fails partway, run it again. The cluster module defaults to `retain_backups_enabled = true` (recommended for production), so `terraform destroy` retains the cluster's backup snapshots. For this disposable walkthrough, set `retain_backups_enabled = false` on `module.atlas_cluster` before destroying if you do not need the snapshots; otherwise delete the retained snapshots afterwards, as they can incur charges. If you removed resources from state or deleted them outside Terraform, see [Troubleshooting plan changes](../../docs/troubleshooting.md).
 
 ## Next steps
 
