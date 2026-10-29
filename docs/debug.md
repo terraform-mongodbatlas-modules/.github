@@ -15,14 +15,14 @@ Before opening an issue or a support ticket, capture the following about **your*
 - **Pinned module sources:** `version` constraints and Registry module addresses in your root module
 - **Redacted HCL:** Remove API keys, connection strings, and secrets from anything you paste publicly
 
-Try to reproduce the problem with the **smallest root module** that still shows the behavior. Compare against [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) when the issue involves a full stack.
+Try to reproduce the problem with the **smallest root module** that still shows the behavior. Compare your configuration and plan against the [project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md), and against [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) when the issue involves a full stack.
 
 ## Logging
 
 Use the following logging options to get more visibility into Terraform and the provider's behavior.
 
 - **Terraform core:** `TF_LOG=DEBUG terraform plan` (or `apply`). Use `TF_LOG_PATH` to write logs to a file.
-- **Provider:** `TF_LOG_PROVIDER=DEBUG` limits verbose output to the MongoDB Atlas provider. See [Terraform logging](https://developer.hashicorp.com/terraform/internals/debugging).
+- **Provider:** `TF_LOG_PROVIDER=DEBUG` limits verbose output to the MongoDB Atlas provider. See [Terraform logging](https://developer.hashicorp.com/terraform/internals/debugging). To find which attribute a plan change comes from, see [Debug a plan diff with provider logs](./troubleshooting.md#debug-a-plan-diff-with-provider-logs).
 - **Plan output:** Save `terraform plan -out=plan.out` and `terraform show -json plan.out` when you need structured plan details for an issue.
 
 Attach relevant log excerpts to GitHub issues; redact credentials and internal hostnames.
@@ -49,7 +49,7 @@ Module upgrades might introduce new defaults, renamed resources, or state change
 - **New features via `default_feature_set`:** modules follow semantic versioning, so minor and patch upgrades do not break your configuration, but with the default `default_feature_set = "RECOMMENDED"` new recommended features are enabled automatically and can show up as plan changes after a minor upgrade. Set `default_feature_set = "STANDARD"` to opt out; see your module's README for details.
 - **State moves** between module major versions may require `moved` blocks or a documented migration path; follow the module's upgrade guide rather than tainting resources without a plan.
 
-Run `terraform plan` in a non-production workspace first when testing upgrades.
+Run `terraform plan` in a non-production workspace first when testing upgrades. For replacements, drift, and which configuration changes need extra attention, see [Troubleshooting plan changes](./troubleshooting.md).
 
 ## Where to file issues
 
@@ -65,6 +65,7 @@ GitHub issues are for community reporting; they do not replace Atlas Support if 
 ## Further reading
 
 - [Getting started](./getting-started.md)
+- [Troubleshooting plan changes](./troubleshooting.md)
 - [Organization profile repository table](../profile/README.md#repositories)
 - [MongoDB Atlas provider documentation](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs)
 - [Get started with Terraform and the MongoDB Atlas provider](https://www.mongodb.com/docs/atlas/terraform/)

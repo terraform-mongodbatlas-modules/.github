@@ -10,6 +10,8 @@ The landing page on [github.com/terraform-mongodbatlas-modules](https://github.c
 
 - [Getting started](./docs/getting-started.md)
 - [Debug guide](./docs/debug.md)
+- [Troubleshooting plan changes](./docs/troubleshooting.md)
+- [Project, PrivateLink, and cluster walkthrough](./examples/aws-project-privatelink-cluster/README.md)
 
 ## MongoDB documentation
 

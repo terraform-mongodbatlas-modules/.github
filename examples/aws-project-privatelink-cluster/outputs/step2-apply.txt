@@ -1,0 +1,7 @@
+module.atlas_aws.module.privatelink["us-west-2"].aws_security_group.this[0]: Creation complete after 4s [id=<id>]
+module.atlas_aws.module.privatelink["us-west-2"].aws_security_group_rule.ingress_cidr[0]: Creation complete after 1s [id=<id>]
+module.atlas_aws.mongodbatlas_privatelink_endpoint.this["us-west-2"]: Creation complete after 2m40s [id=<id>]
+module.atlas_aws.module.privatelink["us-west-2"].aws_vpc_endpoint.this[0]: Creation complete after 11s [id=<id>]
+module.atlas_aws.module.privatelink["us-west-2"].mongodbatlas_privatelink_endpoint_service.this: Creation complete after 13m6s [id=<id>]
+module.atlas_cluster.mongodbatlas_advanced_cluster.this: Modifications complete after 16m27s [name=lz-walkthrough]
+Apply complete! Resources: 18 added, 1 changed, 0 destroyed.

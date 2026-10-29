@@ -13,9 +13,9 @@ Official [Terraform Registry](https://registry.terraform.io/namespaces/terraform
 
 ## Who should read what
 
-- **Developers and platform engineers deploying Atlas with Terraform:** Start with [Getting started](../docs/getting-started.md), then the module README for the layer you are deploying. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For a single apply that results in a running app, start with the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot). For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
+- **Developers and platform engineers deploying Atlas with Terraform:** Start with [Getting started](../docs/getting-started.md), then the [project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md) to see what a good plan looks like. Use [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples) for a full stack walkthrough. For a single apply that results in a running app, start with the [chatbot demo](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot). For design patterns, see the [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/) and [Solutions Library](https://www.mongodb.com/docs/atlas/architecture/current/solutions-library/).
 - **Planning a landing zone:** Use the [repository table](#repositories) below for what each module covers, [landing zone](https://www.mongodb.com/docs/atlas/architecture/current/landing-zone/) and [hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) guidance when planning scope, and each module's upgrade guide when planning version bumps.
-- **Debugging a deployment:** [Debug guide](../docs/debug.md) covers logging, how to tell provider issues from module issues, and where to report a bug.
+- **Debugging a deployment:** [Debug guide](../docs/debug.md) covers logging, how to tell provider issues from module issues, and where to report a bug. [Troubleshooting plan changes](../docs/troubleshooting.md) covers unexpected replacements, drift, and which changes need extra attention.
 
 ## Repositories
 
@@ -38,6 +38,7 @@ Each module owns one layer of that stack. Use one cloud integration repository (
 
 The modules above are supported building blocks: each owns one layer of the stack and carries the stability commitment. The repositories below are end-to-end instead: they compose the modules into a working stack, carry no stability guarantee, and are starting points to copy rather than supported products.
 
+- **[Project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md):** A single `main.tf` with no variables. Step 1 deploys a single-region sharded cluster over AWS PrivateLink; step 2 adds a second region. The README compares each configuration change with the plan it produces.
 - **[atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples):** Example stacks per cloud provider that combine the modules above. There is one directory per example.
 - **[terraform-mongodbatlas-aws-chatbot](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-aws-chatbot):** Deploys a hybrid search chatbot on AWS in one `terraform apply`, using Atlas over PrivateLink, a private ECS Fargate service, and CloudFront at the edge. It is a demo of a production-shaped deployment, not a supported product. The repository might be archived if adoption does not materialize. See the [Registry listing](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/aws-chatbot/mongodbatlas/latest).
 
@@ -45,6 +46,7 @@ The modules above are supported building blocks: each owns one layer of the stac
 
 - [Getting started](../docs/getting-started.md): Credentials, first apply, and the examples path.
 - [Debug guide](../docs/debug.md): Reproduce configs, logging, provider vs module, where to file issues.
+- [Troubleshooting plan changes](../docs/troubleshooting.md): Reading plans, safe vs risky changes, and drift.
 
 ## Support
 

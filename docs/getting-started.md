@@ -43,6 +43,10 @@ Modules stack in a typical landing-zone order described in the [Architecture Cen
 
 See the [organization profile repository table](../profile/README.md#repositories) and [Architecture Center hierarchy](https://www.mongodb.com/docs/atlas/architecture/current/hierarchy/) for what each repository owns.
 
+## Runnable path: project, PrivateLink, and cluster walkthrough
+
+Start with the [project, PrivateLink, and cluster walkthrough](../examples/aws-project-privatelink-cluster/README.md). It combines the project, atlas-aws, and cluster modules at `~> 1.0` in a single `main.tf` with no variables. Step 1 deploys a single-region sharded cluster over AWS PrivateLink. Step 2 adds a second region, and the README shows each configuration change next to the plan it produces, so you can compare your own plan against a verified run.
+
 ## Runnable path: atlas-examples
 
 The fastest way to see a full stack is [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples). Each cloud has a complete example with its own README:
@@ -59,9 +63,9 @@ For a single apply that results in a running application, see the [chatbot demo]
 
 ## Versioning
 
-Each module is **generally available (GA)** and formally supported by MongoDB, including bug fixes, security patches, and backward-compatible enhancements. See the stability commitment in each module README (for example the project module's two-year v1 stability window once v1 is released).
+Each module is **generally available (GA)** and formally supported by MongoDB, including bug fixes, security patches, and backward-compatible enhancements. See the stability commitment in each module README (for example the project module's two-year v1 stability window).
 
-**v1.0.0** releases across the module set are **coming soon**. Until then, Registry publishes **0.x** versions. Pin the minor line you tested; do not leave `version` unset in production root modules.
+The module set is released at **v1.0.0**. Use `~> 1.0` to receive v1 minor and patch releases; do not leave `version` unset in production root modules. If you are on a 0.x version, read the module's v1.0.0 upgrade guide before switching.
 
 Always use a **pessimistic constraint (`~>`)** in your root module for:
 
@@ -69,7 +73,7 @@ Always use a **pessimistic constraint (`~>`)** in your root module for:
 - The `mongodbatlas` provider in `required_providers`
 - The cloud provider (`aws`, `azurerm`, or `google`) when you use a cloud integration module
 
-Example for a project module today (swap `~> 0.3` for `~> 1.0` after v1 is released):
+Example for a project module:
 
 ```hcl
 terraform {
@@ -89,7 +93,7 @@ terraform {
 
 module "atlas_project" {
   source  = "terraform-mongodbatlas-modules/project/mongodbatlas"
-  version = "~> 0.3"
+  version = "~> 1.0"
 
   # ... module inputs
 }
@@ -108,6 +112,7 @@ Use the `source` and `version` pattern shown above. Each module README lists req
 - [Organization profile repository table](../profile/README.md#repositories) and [Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Module boundaries and design guidance.
 - Module README and upgrade guide in the repo you are using.
 - [Debug guide](./debug.md): Logging, triage, and where to file issues.
+- [Troubleshooting plan changes](./troubleshooting.md): Reading plans, safe vs risky changes, and drift.
 - [Support](../SUPPORT.md): Atlas Support for contracted customers.
 - [Atlas Architecture Center](https://www.mongodb.com/docs/atlas/architecture/current/): Landing zone, security, HA, and automation guidance that informs module defaults.
 - [Guidance for automated infrastructure provisioning](https://www.mongodb.com/docs/atlas/architecture/current/automation/): How Terraform fits alongside other Atlas automation options.
